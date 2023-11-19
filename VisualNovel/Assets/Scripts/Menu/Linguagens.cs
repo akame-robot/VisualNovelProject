@@ -10,8 +10,9 @@ using UnityEngine.UI;
 public class Linguagens : Tradutor
 {
     [SerializeField] private List<TextMeshProUGUI> allText;
-    public  Transform popup;
+  
     public TMP_FontAsset japonesFonte, chinesFonte, portFonte;
+    public TMP_Dropdown dropdwon;
 
     [SerializeField] private List<string> portuguesBr, ingles, japones, chines;
   
@@ -19,8 +20,9 @@ public class Linguagens : Tradutor
     // Start is called before the first frame update
     void Start()
     {
-       
-       
+        TrocaLinguagem();
+
+
 
     }
 
@@ -32,11 +34,11 @@ public class Linguagens : Tradutor
 
     }
 
-    public void TrocaLinguagem(int valor)
+    public void TrocaLinguagem()
     {
-        
-       
-        switch (valor)
+
+        Tradutor.language = dropdwon.value;
+        switch (dropdwon.value)
         {
             case 0:
                 TrocaFonte(allText, portFonte);
